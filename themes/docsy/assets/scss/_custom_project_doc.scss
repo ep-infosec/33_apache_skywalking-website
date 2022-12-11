@@ -1,0 +1,132 @@
+.project-doc {
+  .td-content {
+    #overview, #community {
+      padding: 0;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    table{
+      display: block;
+      max-width: 100%;
+      overflow: auto;
+      thead tr th{
+        word-break: normal;
+        border-bottom: none;
+      }
+      tbody tr {
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+    }
+    p code, li > code, table code {
+      overflow-wrap: break-word;
+    }
+  }
+  .version-select{
+    vertical-align: middle;
+    margin-left: 5px;
+    color: #2c3e50;
+    border: 1px solid #dee2e6;
+    border-radius: 2px;
+    outline: none;
+  }
+
+  .td-sidebar {
+    font-weight: 300;
+    padding-top: 5.5rem;
+    padding-right: 0px;
+    padding-left: 0px;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-y: overlay;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+    background-color: #fff;
+
+    .description-wrapper {
+      padding: 0 11px;
+      border-bottom: 1px solid #cccccc40;
+      h5 {
+        padding-top: 0;
+      }
+    }
+
+    .version-wrapper {
+      padding-top: 10px;
+      font-weight: 400;
+      font-size: 16px;
+      text-indent: 8px;
+      line-height: 1.5;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-family: inherit;
+      color: inherit;
+    }
+  }
+
+  .commit-id {
+    padding-top: 1rem !important;
+    border-top: 1px solid #cccccc40;
+    word-break: break-all;
+    font-size: 13px;
+    margin-top: 0.5rem;
+    text-indent: 8px;
+    color: #888;
+  }
+  main{
+    word-break: break-word;
+    p code {
+      word-break: break-word !important;
+    }
+  }
+  .doc-menu-button {
+    font-size: 20px;
+    position: fixed;
+    right: 15px;
+    bottom: 25px;
+    border: 1px solid #cccccc;
+    background-color: rgba(216,217,218,0.3);
+    border-radius: 3px;
+    padding: 4px 8px;
+    color: #999;
+    z-index: 9999;
+    display: none;
+  }
+  .td-main {
+    #TableOfContents {
+      font-size: 14px;
+      width: auto;
+      border-left: 1px solid #dee2e6;
+    }
+    .td-toc{
+      border-left: none;
+      .fixed {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .project-doc {
+    .td-sidebar {
+      height: 0;
+      padding: 0;
+      z-index: 8;
+      transform: translate(-100%,0);
+      transition: transform 0.2s linear;
+      &.active{
+        height: 100vh;
+        transform: translate(0,0);
+        display: block;
+        padding-top: 5.5rem;
+        padding-bottom: 1rem;
+      }
+    }
+    .doc-menu-button{
+      display: block;
+      cursor: pointer;
+    }
+  }
+}

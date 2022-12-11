@@ -1,0 +1,59 @@
+{{ $scratchTotal := newScratch }}
+
+{{ range where .Site.Pages "Section" "!=" "" }}
+{{ if .Params.endTime }}
+{{ if (time .Params.endTime).After now }}
+{{ $scratchTotal.Add "total" 1 }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+
+{{if ($scratchTotal.Get "total")}}
+<div class="sky-event-popup">
+
+    <div class="sky-pop-modal">
+        <img class="fa-window-close" src="/images/icon-close.svg" alt="">
+        <div class="pic-wrapper">
+            <img
+                    data-img="/images/skywalking_200x200.png"
+                    class="pic"
+                    alt="event"
+            />
+        </div>
+
+        <div class="content-box">
+            {{ range where .Site.Pages "Section" "!=" "" }}
+            {{ if .Params.endTime }}
+            {{ if (time .Params.endTime).After now }}
+
+            <div class="item"
+                 data-img="{{.Params.img}}"
+                 data-poster="{{.Params.poster}}"
+                 data-link="{{.RelPermalink}}"
+                 data-starttime="{{.Params.startTime}}"
+                 data-endtime="{{.Params.endTime}}">
+                <a href="{{.RelPermalink}}">
+                    <h3 class="title">{{ .LinkTitle }}</h3>
+                    <p class="content-text">
+                        {{.Params.description}}
+                    </p>
+                </a>
+
+                <a href="{{.RelPermalink}}" class="modal-btn">
+                    {{if .Params.buttonText }}
+                    {{ .Params.buttonText }}
+                    {{else}}
+                    Read more
+                    {{end}}
+                </a>
+            </div>
+            {{ end }}
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+{{end}}
+

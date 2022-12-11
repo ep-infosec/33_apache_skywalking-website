@@ -1,0 +1,159 @@
+@keyframes eventFadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes eventFadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.sky-event-popup {
+  display: none;
+  animation: eventFadein 0.5s linear;
+  box-shadow: 0 0 20px -12px #626365;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  z-index: 9999;
+  outline: 0;
+  width: 440px;
+  max-width: 100%;
+  border-radius: 6px;
+
+  .sky-pop-modal {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.97);
+    display: flex;
+
+    .fa-window-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #c9c9c9;
+      transition: color 0.3s;
+      z-index: 99;
+      opacity: 0.5;
+
+      &:hover {
+        color: #8797ac;
+      }
+    }
+
+    .pic-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      background: #f4f8fa;
+      &.poster{
+        width: auto;
+        .pic{
+          max-width:100%;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .pic {
+      border: none;
+      height: 100%;
+      max-width: 100px;
+    }
+  }
+
+  .content-box {
+    padding: 12px 20px 12px 10px;
+
+    box-sizing: border-box;
+    width: 340px;
+
+    &.one {
+      .content-text {
+        height: 60px;
+        -webkit-line-clamp: 3;
+      }
+
+      .title {
+        margin-bottom: 10px;
+      }
+
+      .modal-btn {
+        display: inline-block;
+      }
+    }
+
+    .item {
+      display: none;
+    }
+  }
+
+  .title {
+    font-size: 14px;
+    margin: 13px 0 0;
+    padding: 0;
+    line-height: 1.3;
+  }
+
+  .content-text {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+    a {
+      color: #8e8989;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .modal-btn {
+    font-size: 14px;
+    padding: 0 20px;
+    height: 28px;
+    color: #fff;
+    background-image: linear-gradient(to right, #17b6c1, #136af4);
+    border-radius: 2px;
+    display: none;
+    line-height: 28px;
+    text-align: center;
+    margin: 11px 20px 0 0px;
+
+    &:hover {
+      background-image: linear-gradient(
+                      to right,
+                      darken(#17b6c1, 1.5%),
+                      darken(#136af4, 1.5%)
+      );
+    }
+  }
+}

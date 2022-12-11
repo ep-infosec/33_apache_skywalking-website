@@ -1,0 +1,37 @@
+{
+  "name": "skywalking-website",
+  "version": "0.0.1",
+  "description": "SkyWalking Website",
+  "main": "none.js",
+  "scripts": {
+    "build": "npm install && hugo",
+    "build-with-docs": "npm install && npm run docs && npm run team && hugo && npm run cp",
+    "build-preview": "npm install && npm run docs && hugo && npm run cp",
+    "docs": "node ./docs.js",
+    "team": "node ./scripts/team.js",
+    "cp": "cp ./.htaccess ./public && cp ./.asf.yaml ./public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/skywalking-website.git"
+  },
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/apache/skywalking-website/issues"
+  },
+  "homepage": "skywalking.apache.org",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^8.3.1",
+    "postcss": "^8.2.6",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0"
+  }
+}

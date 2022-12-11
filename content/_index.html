@@ -1,0 +1,195 @@
++++
+title = "Apache SkyWalking"
+linkTitle = "Apache SkyWalking"
++++
+
+<div class="container pt-64">
+    {{< contributors-home >}}
+
+    <div class="introduction mt-5">
+        <h1 class="title-skywalking">
+            Apache SkyWalking
+            <a href="https://github.com/apache/skywalking" target="_blank" rel="noopener">
+                <i class="iconfont icon-github icon-skywalking"></i>
+            </a>
+        </h1>
+        <div class="desc" id="demo">
+            Application performance monitor tool for distributed systems, especially designed for
+            microservices, cloud native and container-based (Kubernetes) architectures.
+        </div>
+        <a href="/docs/skywalking-showcase/latest/readme/" target="_blank" rel="noopener">
+            <button class="sky-btn primary mr-2">Quick start</button>
+        </a>
+        <span class="dropdown demo-wrapper">
+            <button class="sky-btn btn-demo dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                Live demo
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <span class="dropdown-item" href="#">Username: skywalking</span>
+                <span class="dropdown-item" href="#">Password: skywalking</span>
+                <span class="dropdown-item" href="#">
+                  <a href="http://demo.skywalking.apache.org/" target="_blank" rel="noopener">
+                  Go <i class="iconfont icon-arrow-up-right"></i>
+                  </a>
+                </span>
+            </div>
+        </span>
+    </div>
+</div>
+
+<div class="ui-wrapper">
+    <div class="container  ui-content">
+        <div class="swiper-container ui-swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img loading="lazy" src="images/home/ui_dashboard.png" alt="dashboard">
+                </div>
+                <div class="swiper-slide">
+                    <img loading="lazy" src="images/home/ui_topo.png" alt="topo">
+                </div>
+                <div class="swiper-slide">
+                    <img loading="lazy" src="images/home/ui_trace.png" alt="trace">
+                </div>
+                <div class="swiper-slide">
+                    <img loading="lazy" src="images/home/ui_eBPF.png" alt="eBPF Profiling">
+                </div>
+            </div>
+            <div class="ui-swiper-pagination swiper-pagination"></div>
+            <div class="ui-swiper-button-prev swiper-button-prev"></div>
+            <div class="ui-swiper-button-next swiper-button-next"></div>
+        </div>
+    </div>
+</div>
+
+<div class="solution-wrapper">
+    <div class="container">
+        <h2 class="title solution-title">
+            All-in-one APM solution
+        </h2>
+        <ul class="solution-content">
+            <li>
+                <h4>Distributed Tracing</h4>
+                <p>
+                    End-to-end distributed tracing. Service topology analysis, service-centric observability and APIs dashboards.
+                </p>
+            </li>
+            <li>
+                <h4>Agents for your stack</h4>
+                <p>
+                    Java, .Net Core, PHP, NodeJS, Golang, LUA, Rust, C++, Client JavaScript and Python agents with active development and maintenance.
+                </p>
+            </li>
+            <li>
+                <h4>eBPF early adoption</h4>
+                <p>
+                    Rover agent works as metrics collector and profiler powered by eBPF to diagnose CPU and network performance.
+                </p>
+            </li>
+        </ul>
+        <ul class="solution-content">
+            <li>
+                <h4>Scaling</h4>
+                <p>
+                    100+ billion telemetry data could collected and analyzed from one SkyWalking cluster.
+                </p>
+            </li>
+            <li>
+                <h4>Mature Telemtry Ecosystems Supported</h4>
+                <p>
+                    Metrics, Traces, and Logs from mature ecosystems are supported, e.g. Zipkin, OpenTelemetry, Prometheus, Zabbix, Fluentd
+                </p>
+            </li>
+            <li>
+                <h4>Native APM Database</h4>
+                <p>
+                    BanyanDB, an observability database, created in 2022, aims to ingest, analyze and store telemetry/observability data.
+                </p>
+            </li>
+        </ul>
+        <ul class="solution-content">
+            <li>
+                <h4>Consistent Metrics Aggregation</h4>
+                <p>
+                    SkyWalking native meter format and widely known metrics format(OpenCensus, OTLP, Telegraf, Zabbix, e.g.) are processed through the same script pipeline.
+                </p>
+            </li>
+            <li>
+                <h4>Log Management Pipeline</h4>
+                <p>
+                    Support log formatting, extract metrics, various sampling policies through script pipeline in high performance.
+                </p>
+            </li>
+            <li>
+                <h4>Alerting and Telemetry Pipelines</h4>
+                <p>
+                    Support service-centric, deployment-centric, API-centric alarm rule setting. Support forwarding alarms and all telemetry data to 3rd party.
+                </p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container" id="arch">
+        <img loading="lazy" src="images/home/architecture_2160x720.png" alt="architecture">
+    </div>
+</div>
+
+<div class="container feature-wrapper events-wrapper mt-5">
+    <h2 class="title">Events &amp; Blogs</h2>
+    <ul class="events-content feature-content">
+        {{< blocks/events >}}
+        {{< /blocks/events >}}
+    </ul>
+</div>
+
+<div class="container run-wrapper center mt-5">
+    <h2 class="title">Ready to get started?</h2>
+    <div class="run-content">
+        <div class="mask"></div>
+        <div class="content-box">
+            <h4>Run SkyWalking in a snap</h4>
+            <p>Try this demo music application to showcase features of Apache SkyWalking in action.</p>
+            <div>
+                <a href="/docs/skywalking-showcase/latest/readme/">
+                    <button class="sky-btn">
+                        Quick start
+                        <i class="iconfont icon-arrow-right pull-right"></i>
+                    </button>
+                </a>
+
+            </div>
+            <a class="releases mt-4" href="/downloads/">All releases</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="container tuned-wrapper feature-wrapper mt-5 mb-5">
+    <h2 class="title">
+        Stay tuned with SkyWalking
+    </h2>
+    <ul class="tuned-content feature-content center">
+        <li>
+            <h4>Questions/bugs?</h4>
+            <p>Features requests, questions or report bugs? Feel free to
+                <a href="https://github.com/apache/skywalking/discussions">open a discussion</a>
+                or <a href="https://github.com/apache/skywalking/issues">file an issue</a>.</p>
+            <img loading="lazy" src="images/home/tuned_q.svg" data-nolightbox="true" alt="questions">
+        </li>
+        <li>
+            <h4>Join our slack workspace!</h4>
+            <p>Send "Request to join SkyWalking slack" mail to
+                <a href="mailto:dev@skywalking.apache.org">dev@skywalking.apache.org</a>.
+                We will invite you in.</p>
+            <img loading="lazy" src="images/home/tuned_slack.svg" data-nolightbox="true" alt="slack">
+        </li>
+        <li>
+            <h4>Follow us on Twitter</h4>
+            <p>For announcement of latest features etc, stay tuned with
+                <a href="https://twitter.com/asfskywalking">@ASFSkyWalking</a>.
+            </p>
+            <img loading="lazy" src="images/home/tuned_twitter.svg" data-nolightbox="true" alt="twitter">
+        </li>
+    </ul>
+</div>
+

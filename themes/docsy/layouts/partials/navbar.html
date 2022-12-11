@@ -1,0 +1,58 @@
+{{ $cover := .HasShortcode "blocks/cover" }}
+<nav class="js-navbar-scroll navbar navbar-expand  {{ if $cover}} td-navbar-cover {{ end }}flex-column flex-md-row td-navbar">
+    <div class="sidebar-button">
+      <i class="iconfont icon-menu"></i>
+    </div>
+    <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+        <span class="navbar-logo">{{ if .Site.Params.ui.navbar_logo }}<img width="130" src="/images/logo.svg" alt="SkyWalking"></span> {{ else }}
+        <span class="text-uppercase font-weight-bold">{{ .Site.Title }}</span> {{ end }}
+    </a>
+    <div class="td-navbar-nav-scroll navbar-nav-wrapper" id="navigation">
+        <ul class="navbar-nav mt-lg-0">
+            {{ $p := . }} {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+            {{ else }}
+            <!--
+            <li class="nav-item">
+                <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+            </li>
+            -->
+            <li class="nav-item mr-3 mb-lg-0">
+				{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+				{{ with .Page }}
+				{{ $active = or $active ( $.IsDescendant .)  }}
+				{{ end }}
+				{{ $url := urls.Parse .URL }}
+				{{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}><span{{if $active }} class="active"{{end}}>{{ .Name }}</span></a>
+			</li>
+            {{ end }} {{ end }}
+            {{ if  .Site.Params.versions }}
+			<li class="nav-item dropdown d-none d-lg-block">
+				{{ partial "navbar-version-selector.html" . }}
+			</li>
+			{{ end }}
+			{{ if  (gt (len .Site.Home.Translations) 0) }}
+			<li class="nav-item dropdown d-none d-lg-block">
+				{{ partial "navbar-lang-selector.html" . }}
+			</li>
+			{{ end }}
+        </ul>
+    </div>
+    <div class="navbar-nav d-none d-lg-block search-input-box">
+        {{ $p := . }} {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+            <span class="link dropdown">
+                <a class="link-name dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ .Name }}
+                </a>
+                <div class="dropdown-menu">
+                    {{ range .Children }}
+                    <a class="dropdown-item" href="{{ .URL | relLangURL }}">{{ .Name }}</a> {{ end }}
+                </div>
+            </span>
+            {{ end }}
+        {{ end }}
+        {{ partial "search-input.html" . }}
+    </div>
+</nav>

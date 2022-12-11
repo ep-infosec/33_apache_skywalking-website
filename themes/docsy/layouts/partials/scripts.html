@@ -1,0 +1,23 @@
+<script src="/js/bootstrap.bundle.min.js"></script>
+{{ if .Site.Params.algolia_docsearch }}
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+{{ end }}
+{{ $jsAnchor := resources.Get "js/anchor.js" }}
+{{ $jsLightbox := resources.Get "js/lightbox.js" }}
+{{ $jsSlider := resources.Get "js/slider.js" }}
+{{ $algolia := resources.Get "js/algolia-search.js" }}
+{{ $event := resources.Get "js/event-popup.js" }}
+{{ $js := (slice $jsAnchor $jsLightbox $jsSlider $algolia $event) | resources.Concat "js/main.js" }}
+{{ if .Site.IsServer }}
+<script src="{{ $js.RelPermalink }}"></script>
+{{ else }}
+{{ $js := $js | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    window.onload = () => mermaid.init(undefined, ".language-mermaid");
+</script>
+
+{{ partial "hooks/body-end.html" . }}

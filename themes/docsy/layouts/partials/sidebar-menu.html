@@ -1,0 +1,37 @@
+<ul class="sidebar-menu">
+    {{ range .catalog }}
+    <li>
+        {{if .catalog}}
+            {{if .path}}
+            <a href="{{ .path }}">{{ .name }}<i class="iconfont icon-arrow-right pull-right"></i></a>
+            {{else}}
+            <a href="#">{{ .name }}<i class="iconfont icon-arrow-right pull-right"></i></a>
+            {{end}}
+
+            {{ partial "sidebar-submenu.html" . }}
+        {{else}}
+            <a href="{{ .path }}">{{ .name }}</a>
+        {{end}}
+    </li>
+    {{ end }}
+</ul>
+<script src="/js/sidebar-menu.js"></script>
+<script>
+  (function (){
+    $.sidebarMenu($('.sidebar-menu'))
+    var path = window.location.pathname;
+    var hash = window.location.hash;
+    var $a = $('.sidebar-menu a')
+    $a.each(function (e){
+      if($(this).attr('href')+'/' === path || $(this).attr('href').replace('#','/#') === path+hash){
+        $(this).parents('li').addClass('active').show()
+      }
+    })
+    $a.on('click',function (){
+      var url = $(this).attr('href')
+      if(url!=='#'){
+        window.location.href = url
+      }
+    })
+  })()
+</script>

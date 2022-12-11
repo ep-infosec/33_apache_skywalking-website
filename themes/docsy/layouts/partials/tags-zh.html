@@ -1,0 +1,15 @@
+<div class="tags-wrapper">
+    <div class="font-weight-bold post-meta ">
+        <i class="iconfont icon-tags pr-1" aria-hidden="true"></i>
+        Tags
+    </div>
+    <ul class="tags-box">
+        {{ range $key, $taxonomy := .Site.Taxonomies.zh_tags }}
+        <li>
+            <a href="{{ .Page.Permalink }}" class="tag-link">{{ .Page.Title }}</a>
+            <span class="count">{{ .Count }}</span>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+

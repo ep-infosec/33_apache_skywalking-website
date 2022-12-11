@@ -1,0 +1,22 @@
+
+<ul class="sidebar-submenu">
+    {{ range .catalog }}
+
+    <li>
+        {{if .catalog}}
+
+            {{if .path}}
+            <a href="{{ .path }}">{{ .name }}<i class="iconfont icon-arrow-right pull-right"></i></a>
+            {{else}}
+            <a href="#">{{ .name }}<i class="iconfont icon-arrow-right pull-right"></i></a>
+            {{end}}
+
+            {{ partial "sidebar-submenu.html" . }}
+        {{else}}
+            <a href="{{ .path }}">{{ .name }}</a>
+        {{end}}
+    </li>
+
+    {{ end }}
+
+</ul>

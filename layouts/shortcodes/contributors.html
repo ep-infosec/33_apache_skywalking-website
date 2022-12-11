@@ -1,0 +1,72 @@
+<div class="pt-4">
+  <h2>
+    Contributors
+    <span class="total">{{.Site.Data.team.totalCount }}</span>
+  </h2>
+  <div class="contributors-wrapper">
+    {{ range .Site.Data.team.projects }}
+    <div class="item-wrapper">
+
+      {{range $index, $element := .list}}
+      {{$name := .name }}
+      {{$id := .repo }}
+      {{if .user}}
+
+      <div class="item" data-name="{{.name}}" data-icon="{{.icon}}">
+        <div class="item-text">
+          {{if .icon}}
+          <img data-nolightbox="true" width="36" height="36" src="/images/project/{{.icon}}.svg" alt="">
+          {{end}}
+          <span class="name">
+            {{.name}}
+          </span>
+        </div>
+        <div>
+          <span class="total">{{.contributorCount}}</span>
+          <i class="iconfont icon-arrow-right"></i>
+        </div>
+      </div>
+
+      <div id="{{$id}}" class="hide">
+        <ul class="list-style-none d-flex flex-wrap mb-n2">
+          {{range $index, $element := .contributors}}
+
+          <li class="mb-2 mr-2">
+            {{if eq .type "Anonymous"}}
+            <a>
+              <i class="fas fa-envelope"></i>
+              {{.login }}
+            </a>
+            {{else}}
+            <a class="link" href="{{.html_url}}" target="_blank">
+              <i class="fab fa-github"></i>
+              {{.login }}
+            </a>
+          </li>
+          {{end}}
+          {{end}}
+        </ul>
+      </div>
+
+      {{end}}
+
+      {{end}}
+    </div>
+
+    {{end}}
+  </div>
+</div>
+
+<div class="modal-wrapper">
+  <div class="modal-inner">
+    <div>
+      <a href="javascript:;" class="btn-back">← Team</a>
+      <div class="modal-name-box">
+        <img data-nolightbox="true" class="modal-icon" width="36" height="36" src="" alt="">
+        <span class="modal-name"></span>
+      </div>
+    </div>
+    <div class="modal-detail scroll-bar"></div>
+  </div>
+</div>
+
